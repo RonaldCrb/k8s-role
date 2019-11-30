@@ -1,0 +1,7 @@
+---
+
+- name: discover microservices!
+  import_tasks: service-discovery.yml
+
+- name: deploy!
+  import_tasks: k8s.yml

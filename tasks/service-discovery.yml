@@ -1,0 +1,14 @@
+---
+- name: discover microservices
+  find:
+    paths: environments/{{ env | mandatory }}/services
+    file_type: directory
+    recurse: no
+  register: discovered
+
+- name: print discovered microservices
+  debug:
+    msg: "{{ item.path | basename }}"
+  with_items: "{{ discovered.files }}"
+  
+
